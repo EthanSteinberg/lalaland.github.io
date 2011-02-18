@@ -1,0 +1,358 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE>SFML - Simple and Fast Multimedia Library</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.2  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurent Gomila">
+	<META NAME="CREATED" CONTENT="0;0">
+	<META NAME="CHANGED" CONTENT="20110217;21011200">
+	<META NAME="DESCRIPTION" CONTENT="SFML official website : tutorials, wiki, downloads, ...">
+	<META NAME="KEYWORDS" CONTENT="sfml, simple, fast, multimedia, library, c++, video, audio, input, opengl, window, windows, linux, object, oriented, api">
+	<META NAME="copyright" CONTENT="2007-2008">
+	<META NAME="language" CONTENT="en">
+	<META NAME="robots" CONTENT="all">
+	<!-- saved from url=(0053)http://www.sfml-dev.org/tutorials/1.6/graphics-qt.php -->
+	<!-- Page title -->
+	<STYLE TYPE="text/css">
+	<!--
+		P { font-family: sans-serif }
+		H2 { margin-top: 0in; border-top: none; border-bottom: 1px dotted #2090b0; border-left: none; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0in; padding-right: 0in; color: #2090b0 }
+		H3 { background: #e0ffe0; border: none; padding: 0in; color: #2090b0 }
+		PRE { margin-right: 0.21in; background: #f0fff0; border: 1px dotted #909090; padding: 0.02in }
+		PRE.cjk { font-family: "Bitstream Vera Sans", monospace }
+		STRONG { color: #2090b0 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" BGCOLOR="#ffffff" DIR="LTR">
+<DIV ID="logo" DIR="LTR">
+	<P><A HREF="http://www.sfml-dev.org/index.php"><FONT COLOR="#000080"><IMG SRC="SFML%20-%20Simple%20and%20Fast%20Multimedia%20Library_files/logo.jpg" NAME="graphics1" ALIGN=BOTTOM WIDTH=770 HEIGHT=200 BORDER=1></FONT></A>
+		</P>
+</DIV>
+<DIV ID="container" DIR="LTR">
+	<P><!--- Container for menu + content, needed for correct page layout --><!--- Navigation part --><BR><BR>
+	</P>
+	<DIV ID="navigation" DIR="LTR">
+		<P><!-- Language --><BR><BR>
+		</P>
+		<DIV ID="language" DIR="LTR">
+			<P><IMG SRC="SFML%20-%20Simple%20and%20Fast%20Multimedia%20Library_files/flag-fr.gif" NAME="graphics2" ALIGN=BOTTOM WIDTH=20 HEIGHT=20 BORDER=0>
+			<A HREF="http://www.sfml-dev.org/tutorials/1.6/graphics-qt-fr.php">Français</A>
+						</P>
+		</DIV>
+		<DIV ID="main_menu" DIR="LTR">
+			<UL>
+				<LI><P STYLE="margin-bottom: 0in"><!-- Main menu --><A HREF="http://www.sfml-dev.org/index.php">Home</A>
+								</P>
+				<LI><P STYLE="margin-bottom: 0in"><A HREF="http://www.sfml-dev.org/features.php">Features</A>
+								</P>
+				<LI><P STYLE="margin-bottom: 0in"><A HREF="http://www.sfml-dev.org/license.php">License</A>
+								</P>
+				<LI><P STYLE="margin-bottom: 0in"><A HREF="http://www.sfml-dev.org/download.php">Download</A>
+								</P>
+				<LI><P STYLE="margin-bottom: 0in"><A HREF="http://www.sfml-dev.org/tutorials/">Tutorials</A>
+								</P>
+				<LI><P STYLE="margin-bottom: 0in"><A HREF="http://www.sfml-dev.org/documentation/">Doc</A>
+								</P>
+				<LI><P STYLE="margin-bottom: 0in"><A HREF="http://www.sfml-dev.org/wiki/en/index">Wiki</A>
+								</P>
+				<LI><P STYLE="margin-bottom: 0in"><A HREF="http://www.sfml-dev.org/forum/">Forum</A>
+								</P>
+				<LI><P STYLE="margin-bottom: 0in"><A HREF="http://www.sfml-dev.org/todo/">Roadmap</A>
+								</P>
+				<LI><P><A HREF="http://sourceforge.net/projects/sfml/">SF.net
+				page</A> 
+				</P>
+			</UL>
+		</DIV>
+		<DIV ID="searchbox" DIR="LTR">
+			<FORM ACTION="http://www.google.com/custom">
+				<P><A NAME="search"></A><A NAME="ok"></A><!-- Search box -->Search...
+				<INPUT TYPE=TEXT NAME="q" SIZE=20 STYLE="width: 1.71in; height: 0.24in">
+				<INPUT TYPE=SUBMIT NAME="ok" VALUE="OK" STYLE="width: 0.47in; height: 0.37in"><INPUT TYPE=HIDDEN NAME="cof" VALUE="S:http://www.sfml-dev.org;VLC:#2050A0;AH:left;BGC:#FFFFFF;LH:200;LC:#2050A0;GFNT:#2050A0;L:http://www.sfml-dev.org/images/logo.jpg;ALC:#2050A0;LW:770;T:#000000;AWFID:76f57fe3ab234f4f;"><INPUT TYPE=HIDDEN NAME="domains" VALUE="www.sfml-dev.org"><INPUT TYPE=HIDDEN NAME="sitesearch" VALUE="www.sfml-dev.org">
+								</P>
+			</FORM>
+		</DIV>
+		<DIV ID="donation_button" DIR="LTR">
+			<P><!-- Donation button --><A HREF="http://sourceforge.net/donate/index.php?group_id=188964"><FONT COLOR="#000080"><IMG SRC="SFML%20-%20Simple%20and%20Fast%20Multimedia%20Library_files/project-support.jpg" NAME="graphics3" ALT="Support this project" ALIGN=BOTTOM WIDTH=88 HEIGHT=32 BORDER=1></FONT></A><A HREF="http://sourceforge.net/donate/index.php?group_id=188964">
+			</A>
+			</P>
+		</DIV>
+		<DIV ID="flattr_button" DIR="LTR">
+			<P><!-- Flattr button --><SCRIPT>
+                        var flattr_url = 'http://www.sfml-dev.org/';
+                        var flattr_btn='compact';
+                    
+</SCRIPT><IMG SRC="" NAME="Object1" ALIGN=BOTTOM WIDTH=110 HEIGHT=20><SCRIPT SRC="SFML%20-%20Simple%20and%20Fast%20Multimedia%20Library_files/load.js"></SCRIPT>
+						</P>
+		</DIV>
+		<DIV ID="rss_button" DIR="LTR">
+			<P><!-- RSS feed --><A HREF="http://www.sfml-dev.org/rss/news-en.xml">RSS
+			2.0</A> 
+			</P>
+		</DIV>
+		<DIV ID="sf_button" DIR="LTR">
+			<P><!-- SourceForge.net logo --><A HREF="http://sourceforge.net/"><FONT COLOR="#000080"><IMG SRC="SFML%20-%20Simple%20and%20Fast%20Multimedia%20Library_files/sflogo.php" NAME="graphics4" ALT="SourceForge.net Logo" ALIGN=BOTTOM WIDTH=125 HEIGHT=37 BORDER=1></FONT></A><A HREF="http://sourceforge.net/">
+			</A>
+			</P>
+		</DIV>
+	</DIV>
+	<DIV ID="content" DIR="LTR">
+		<H2><!-- Page content -->Tutorial - Graphics – Integrating with
+		GTK</H2>
+		<P><A HREF="http://www.sfml-dev.org/tutorials/1.6/graphics-x11.php">Previous
+		(integrating to a X11 interface)</A><BR><A HREF="http://www.sfml-dev.org/tutorials/1.6/index.php">Index</A><BR><A HREF="http://www.sfml-dev.org/tutorials/1.6/graphics-wxwidgets.php">Next
+		(integrating to a wxWidgets interface)</A></P>
+		<H3>Introduction</H3>
+		<P>In this tutorial, we'll show you how to integrate SFML with GTK.</P>
+		<H3>Creating your Gtk Drawing Area</H3>
+		<P>To use SFML and Gtk, first we need to include the headers.</P>
+		<P>Note that the SFML headers are first, this is important, as
+		gtk/gdk would otherwise overide something in SFML, causing a
+		compiler error.</P>
+		<PRE CLASS="western">#include &lt;SFML/System.hpp&gt;
+#include &lt;SFML/Window.hpp&gt;
+#include &lt;SFML/Graphics.hpp&gt;
+#include &lt;gtk/gtk.h&gt;
+
+#ifdef WINDOWS
+#include &lt;gdk/gdkwin32.h&gt;
+#else
+#include &lt;gdk/gdkx.h&gt;
+#endif
+
+#include &lt;cstdio&gt;
+
+</PRE><P>
+		<BR><BR>
+		</P>
+		<P>Then, as usual you need to create your standard hello world Gtk
+		configuration. If you need more help with this then please read
+		some of the getting started tutorials on <A HREF="http://gtk.org/">http://gtk.org/</A>
+		.</P>
+		<PRE CLASS="western">int main(int argc, char **argv)
+{
+   printf(&quot;Start\n&quot;);
+   gtk_init(&amp;argc, &amp;argv);
+
+   GtkWidget *window;
+
+   printf(&quot;Create windows\n&quot;);
+   window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+
+   printf(&quot;Connect signal\n&quot;);
+   g_signal_connect(window, &quot;destroy&quot;, G_CALLBACK(gtk_main_quit), NULL);
+
+   printf(&quot;Show all\n&quot;);
+   gtk_widget_show_all(window);
+
+   printf(&quot;Main\n&quot;);
+   gtk_main();
+
+   printf(&quot;Exit\n&quot;);
+   return 0;
+}
+
+</PRE><P>
+		<BR><BR>
+		</P>
+		<P>Now, lets add a drawing area.  Other than your usual setup, you
+		also have to enable focus on the Gtk Drawing Area, set the size,
+		realize it, and disable the double buffers.</P>
+		<PRE CLASS="western">
+int main(int argc, char **argv)
+{
+   printf(&quot;Start\n&quot;);
+   gtk_init(&amp;argc, &amp;argv);
+
+   GtkWidget *window;
+   GtkWidget *area;
+
+   printf(&quot;Create windows\n&quot;);
+   window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+   area= gtk_drawing_area_new();
+
+   printf(&quot;Add the area to the window\n&quot;);
+   gtk_container_add(GTK_CONTAINER(window), area);
+
+
+   printf(&quot;Enable events for the drawing area\n&quot;);
+   GdkEventMask mask;
+   mask= GDK_ALL_EVENTS_MASK;
+
+   gtk_widget_add_events(area,mask);
+
+
+   printf(&quot;Set up Drawing area\n&quot;);
+   //Be able to focus on the window(Needed for keyboard events)
+   gtk_widget_set_can_focus(area,true);
+
+   //Request a starting size(Otherwise you have no size, ie 0
+   gtk_widget_set_size_request(area, 600, 600);
+   
+   //Make the window real(usually delayed to show_all, but we need it sooner
+   gtk_widget_realize(area);
+
+   //It is double buffered in itself, does not need gtk's help
+   gtk_widget_set_double_buffered(area, false);
+
+
+
+   printf(&quot;Connect signal\n&quot;);
+   g_signal_connect(window, &quot;destroy&quot;, G_CALLBACK(gtk_main_quit), NULL);
+
+   printf(&quot;Show all\n&quot;);
+   gtk_widget_show_all(window);
+
+   printf(&quot;Main\n&quot;);
+   gtk_main();
+
+   printf(&quot;Exit\n&quot;);
+   return 0;
+}
+
+</PRE><P>
+		<BR><BR>
+		</P>
+		<P>Finally, lets add our sf::RenderWindow. I am lazy here and add
+		it is a static variable, but the same could have been done with
+		local variables passed around either with boost::bind( and similar)
+		or in the gpointer that all Gtk callbacks provide.</P>
+		<PRE CLASS="western">#include &lt;SFML/System.hpp&gt;
+#include &lt;SFML/Window.hpp&gt;
+#include &lt;SFML/Graphics.hpp&gt;
+#include &lt;gtk/gtk.h&gt;
+#include &lt;gdk/gdkx.h&gt;
+#include &lt;stdio.h&gt;
+
+
+sf::RenderWindow App;
+
+unsigned char bvalue = 0x00;
+
+gboolean on_close(GtkWidget *widget, gpointer user)
+{
+   App.Close();
+   return true;
+}
+
+gboolean on_expose(GtkWidget *widget, GdkEvent *event, gpointer user)
+{
+   App.Clear(sf::Color(0, 192, bvalue++));
+   App.Display();
+   gtk_widget_queue_draw(widget);
+
+   return true;
+}
+
+int main(int argc, char **argv)
+{
+   printf(&quot;Start\n&quot;);
+   gtk_init(&amp;argc, &amp;argv);
+
+   GtkWidget *window;
+   GtkWidget *area;
+
+   printf(&quot;Create windows\n&quot;);
+   window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+   area= gtk_drawing_area_new();
+
+   printf(&quot;Add the area to the window\n&quot;);
+   gtk_container_add(GTK_CONTAINER(window), area);
+
+
+   printf(&quot;Enable events for the drawing area\n&quot;);
+   GdkEventMask mask;
+   mask= GDK_ALL_EVENTS_MASK;
+
+   gtk_widget_add_events(area,mask);
+
+
+   printf(&quot;Set up Drawing area\n&quot;);
+   //Be able to focus on the window(Needed for keyboard events)
+   gtk_widget_set_can_focus(area,true);
+
+   //Request a starting size(Otherwise you have no size, ie 0
+   gtk_widget_set_size_request(area, 600, 600);
+   
+   //Make the window real(usually delayed to show_all, but we need it sooner
+   gtk_widget_realize(area);
+
+   //It is double buffered in itself, does not need gtk's help
+   <FONT FACE="Bitstream Vera Sans Mono, sans-serif">gtk_widget_set_double_buffered(area, false);</FONT>
+
+
+   //Create the RenderWindow, using the native window handler
+#ifdef WINDOWS
+   App.Create(GDK_WINDOW_HWND(area-&gt;window));
+<FONT FACE="Bitstream Vera Sans Mono, sans-serif">#else</FONT>
+   App.Create(GDK_WINDOW_XID(area-&gt;window));
+#endif
+   
+   //Set the framerate of the window(if you look at expose-event, it is recursive
+   App.SetFramerateLimit(60);
+
+   printf(&quot;Connect signal\n&quot;);
+   g_signal_connect(window, &quot;destroy&quot;, G_CALLBACK(gtk_main_quit), NULL);
+   g_signal_connect(area, &quot;expose-event&quot;, G_CALLBACK(on_expose), NULL);
+   g_signal_connect(area, &quot;destroy&quot;, G_CALLBACK(on_close), NULL);
+
+   printf(&quot;Show all\n&quot;);
+   gtk_widget_show_all(window);
+
+   printf(&quot;Main\n&quot;);
+   gtk_main();
+
+   printf(&quot;Exit\n&quot;);
+   return 0;
+}
+</PRE><P>
+		<BR><BR>
+		</P>
+		<P>There you go, a SFML RenderWindow bound to a Gtk Drawing Area
+		widget!</P>
+		<H3>Using our Gtk Drawing Area</H3>
+		<P>The Gtk Drawing Area is simple to use.</P>
+		<P>All render code belongs in the on_expose function, with the
+		framerate of the Window controlling the speed.</P>
+		<P>Sadly, you are unable to use the sf::Event interface. The best
+		thing to do is to handle events in the standard Gtk way of callback
+		functions. Again, look on <A HREF="http://gtk.org/">http://gtk.org/</A>
+		for more information about what the signals are, and how to handle
+		them</P>
+		<P STYLE="margin-bottom: 0in"><BR>
+		</P>
+		<P STYLE="margin-bottom: 0in">Thank you Shy Guy for the code and
+		inspiration.</P>
+		<P STYLE="margin-bottom: 0in"><BR>
+		</P>
+		<P><A HREF="http://www.sfml-dev.org/tutorials/1.6/graphics-x11.php">Previous
+		(integrating to a X11 interface)</A><BR><A HREF="http://www.sfml-dev.org/tutorials/1.6/index.php">Index</A><BR><A HREF="http://www.sfml-dev.org/tutorials/1.6/graphics-wxwidgets.php">Next
+		(integrating to a wxWidgets interface)</A></P>
+	</DIV>
+</DIV>
+<DIV ID="footer" DIR="LTR">
+	<P><!-- Page footer -->&nbsp;::&nbsp; Copyright © 2007-2011 <A HREF="mailto:laurent@sfml-dev.org">Laurent
+	Gomila</A>, all rights reserved &nbsp;::&nbsp; Icons from the
+	Vista-Inspirate free icons set by <A HREF="http://sa-ki.deviantart.com/">Alexandre
+	Moore</A> &nbsp;::&nbsp;<!-- Website by <a href="mailto:laurent.gom@gmail.com" title="Contact Laurent Gomila">Laurent Gomila</a> &nbsp;::&nbsp;
+                This page is valid <a href="http://validator.w3.org/check?uri=referer" title="Page is valid XHTML 1.1">XHTML 1.1</a>
+                and <a href="http://jigsaw.w3.org/css-validator/check/referer" title="Page is valid CSS 2">CSS 2</a> &nbsp;::&nbsp;
+                http://sa-ki.deviantart.com/-->
+		</P>
+</DIV>
+<DIV ID="hiddenlpsubmitdiv" DIR="LTR">
+	<P><!-- Google analytics --><SCRIPT SRC="SFML%20-%20Simple%20and%20Fast%20Multimedia%20Library_files/urchin.js"></SCRIPT><SCRIPT>
+            _uacct = "UA-1839559-1";
+            urchinTracker();
+        
+</SCRIPT><BR><BR>
+	</P>
+</DIV>
+<P><SCRIPT>
+try{for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){ var lastpass_f = document.forms[lastpass_iter]; if(typeof(lastpass_f.lpsubmitorig2)=="undefined"){ lastpass_f.lpsubmitorig2 = lastpass_f.submit; lastpass_f.submit = function(){ var form=this; var customEvent = document.createEvent("Event"); customEvent.initEvent("lpCustomEvent", true, true); var d = document.getElementById("hiddenlpsubmitdiv"); for(var i = 0; i < document.forms.length; i++){ if(document.forms[i]==form){ d.innerText=i; } } d.dispatchEvent(customEvent); form.lpsubmitorig2(); } } }}catch(e){}
+</SCRIPT><BR><BR>
+</P>
+</BODY>
+</HTML>
